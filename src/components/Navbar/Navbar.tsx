@@ -13,6 +13,13 @@ import {
   useColorModeValue,
   useBreakpointValue,
   useDisclosure,
+  Menu,
+  MenuButton,
+  Avatar,
+  MenuList,
+  Center,
+  MenuDivider,
+  MenuItem,
 } from '@chakra-ui/react';
 import {
   HamburgerIcon,
@@ -21,6 +28,7 @@ import {
   ChevronRightIcon,
 } from '@chakra-ui/icons';
 import { ColorModeSwitcher } from '../../ColorModeSwitcher';
+import glassesTransparent from '../../assets/images/glasses-transparent.svg';
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
@@ -97,6 +105,39 @@ export default function WithSubnavigation() {
           >
             Sign Up
           </Button>
+
+          <Menu>
+            <MenuButton
+              as={Button}
+              rounded={'full'}
+              variant={'link'}
+              cursor={'pointer'}
+              minW={0}
+            >
+              <Avatar size={'sm'} src={`${glassesTransparent}`} />
+            </MenuButton>
+            <MenuList alignItems={'center'}>
+              <br />
+              <Center>
+                <Avatar size={'xl'} src={`${glassesTransparent}`} />
+              </Center>
+              <br />
+              <Center>
+                <Text fontSize={'sm'}>Username</Text>
+              </Center>
+              <br />
+              <MenuDivider />
+              <MenuItem>
+                <Text fontSize={'sm'}>Saved Playlists</Text>
+              </MenuItem>
+              <MenuItem>
+                <Text fontSize={'sm'}>Settings</Text>
+              </MenuItem>
+              <MenuItem>
+                <Text fontSize={'sm'}>Logout</Text>
+              </MenuItem>
+            </MenuList>
+          </Menu>
         </Stack>
       </Flex>
 
@@ -271,41 +312,41 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   {
-    label: 'Nav & Subnav 1',
-    children: [
-      {
-        label: 'Explore Design Work',
-        subLabel: 'Trending Design to inspire you',
-        href: '#',
-      },
-      {
-        label: 'New & Noteworthy',
-        subLabel: 'Up-and-coming Designers',
-        href: '#',
-      },
-    ],
-  },
-  {
-    label: 'Nav & Subnav 2',
-    children: [
-      {
-        label: 'Job Board',
-        subLabel: 'Find your dream design job',
-        href: '#',
-      },
-      {
-        label: 'Freelance Projects',
-        subLabel: 'An exclusive list for contract work',
-        href: '#',
-      },
-    ],
-  },
-  {
-    label: 'Nav 1',
+    label: 'Top 100 Songs',
     href: '#',
   },
-  {
-    label: 'Nav 2',
-    href: '#',
-  },
+  // {
+  //   label: 'My Favorites',
+  //   href: '#',
+  // },
+  // {
+  //   label: 'Nav & Subnav 1',
+  //   children: [
+  //     {
+  //       label: 'Explore Design Work',
+  //       subLabel: 'Trending Design to inspire you',
+  //       href: '#',
+  //     },
+  //     {
+  //       label: 'New & Noteworthy',
+  //       subLabel: 'Up-and-coming Designers',
+  //       href: '#',
+  //     },
+  //   ],
+  // },
+  // {
+  //   label: 'Nav & Subnav 2',
+  //   children: [
+  //     {
+  //       label: 'Job Board',
+  //       subLabel: 'Find your dream design job',
+  //       href: '#',
+  //     },
+  //     {
+  //       label: 'Freelance Projects',
+  //       subLabel: 'An exclusive list for contract work',
+  //       href: '#',
+  //     },
+  //   ],
+  // },
 ];
