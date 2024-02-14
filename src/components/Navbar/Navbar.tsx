@@ -20,6 +20,7 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from '@chakra-ui/icons';
+import { ColorModeSwitcher } from '../../ColorModeSwitcher';
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
@@ -57,7 +58,7 @@ export default function WithSubnavigation() {
             fontFamily={'heading'}
             color={useColorModeValue('gray.800', 'white')}
           >
-            Logo
+            Musiq Logo
           </Text>
 
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
@@ -71,6 +72,8 @@ export default function WithSubnavigation() {
           direction={'row'}
           spacing={6}
         >
+          <ColorModeSwitcher justifySelf="flex-end" />
+
           <Button
             as={'a'}
             fontSize={'sm'}
@@ -268,7 +271,7 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   {
-    label: 'Inspiration',
+    label: 'Nav & Subnav 1',
     children: [
       {
         label: 'Explore Design Work',
@@ -283,7 +286,7 @@ const NAV_ITEMS: Array<NavItem> = [
     ],
   },
   {
-    label: 'Find Work',
+    label: 'Nav & Subnav 2',
     children: [
       {
         label: 'Job Board',
@@ -298,11 +301,11 @@ const NAV_ITEMS: Array<NavItem> = [
     ],
   },
   {
-    label: 'Learn Design',
+    label: 'Nav 1',
     href: '#',
   },
   {
-    label: 'Hire Designers',
+    label: 'Nav 2',
     href: '#',
   },
 ];
