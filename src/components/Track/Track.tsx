@@ -5,9 +5,9 @@ import { Box, Button, Text } from '@chakra-ui/react';
 const Track = ({ track }: any) => {
   return (
     <Box>
-      <Text fontWeight="bold">{track.name}</Text>
+      {/* <Text fontWeight="bold">{track.name}</Text>
       <Text>{track.album}</Text>
-      <Text>{track.artist}</Text>
+      <Text>{track.artist}</Text> */}
 
       <Box>
         {/* depending on the state of the track, render a '+' or '-' button */}

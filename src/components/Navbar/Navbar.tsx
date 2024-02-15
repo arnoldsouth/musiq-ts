@@ -20,6 +20,7 @@ import {
   Center,
   MenuDivider,
   MenuItem,
+  Heading,
 } from '@chakra-ui/react';
 import {
   HamburgerIcon,
@@ -29,6 +30,13 @@ import {
 } from '@chakra-ui/icons';
 import { ColorModeSwitcher } from '../../ColorModeSwitcher';
 import glassesTransparent from '../../assets/images/glasses-transparent.svg';
+import { useState } from 'react';
+
+const user = {
+  name: 'Arnold Southammavong',
+  image: glassesTransparent,
+  email: 'email@example.com',
+};
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
@@ -60,13 +68,14 @@ export default function WithSubnavigation() {
             aria-label={'Toggle Navigation'}
           />
         </Flex>
+
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
           <Text
             textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
             fontFamily={'heading'}
             color={useColorModeValue('gray.800', 'white')}
           >
-            Musiq Logo
+            <Heading>Musiq Logo</Heading>
           </Text>
 
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
@@ -112,23 +121,30 @@ export default function WithSubnavigation() {
               rounded={'full'}
               variant={'link'}
               cursor={'pointer'}
-              minW={0}
+              // minW={0}
             >
-              <Avatar size={'sm'} src={`${glassesTransparent}`} />
+              <Avatar size={'sm'} src={user.image} />
             </MenuButton>
+
             <MenuList alignItems={'center'}>
               <br />
+
               <Center>
-                <Avatar size={'xl'} src={`${glassesTransparent}`} />
+                <Avatar size={'xl'} src={user.image} />
               </Center>
+
               <br />
+
               <Center>
-                <Text fontSize={'sm'}>Username</Text>
+                <Text fontSize={'sm'}>{user.name}</Text>
               </Center>
+
               <br />
+
               <MenuDivider />
+
               <MenuItem>
-                <Text fontSize={'sm'}>Saved Playlists</Text>
+                <Text fontSize={'sm'}>My Profile</Text>
               </MenuItem>
               <MenuItem>
                 <Text fontSize={'sm'}>Settings</Text>
@@ -154,7 +170,7 @@ const DesktopNav = () => {
   const popoverContentBgColor = useColorModeValue('white', 'gray.800');
 
   return (
-    <Stack direction={'row'} spacing={4}>
+    <Stack direction={'row'} spacing={4} align={'center'}>
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
           <Popover trigger={'hover'} placement={'bottom-start'}>
@@ -312,13 +328,13 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   {
-    label: 'Top 100 Songs',
+    label: 'My Profile',
     href: '#',
   },
-  // {
-  //   label: 'My Favorites',
-  //   href: '#',
-  // },
+  {
+    label: 'My Most Played Tracks',
+    href: '#',
+  },
   // {
   //   label: 'Nav & Subnav 1',
   //   children: [
