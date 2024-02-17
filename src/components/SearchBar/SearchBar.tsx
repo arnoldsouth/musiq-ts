@@ -1,18 +1,18 @@
 // this component will have an input field and a button for users to initiate a search
 
 import { Box, Button, FormControl, Input } from '@chakra-ui/react';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
-const SearchBar = ({ onSearch }: any) => {
-  const [searchInput, setSearchInput] = useState('');
+const SearchBar = () => {
+  // const [searchInput, setSearchInput] = useState('');
 
-  const handleInputChange = (e: any) => {
-    setSearchInput(e.target.value);
-  };
+  // const handleInputChange = useCallback((e) => {
+  //   setSearchInput(e.target.value);
+  // }, []);
 
-  const search = () => {
-    onSearch(searchInput);
-  };
+  // const search = useCallback(() => {
+  //   onSearch(searchInput);
+  // }, [onSearch, searchInput]);
 
   return (
     <Box display="flex" justifyContent="center">
@@ -25,12 +25,10 @@ const SearchBar = ({ onSearch }: any) => {
             width="auto"
             placeholder="Search"
             size="md"
-            onChange={handleInputChange}
+            // onChange={}
           />
 
-          <Button type="submit" onSubmit={search}>
-            Submit
-          </Button>
+          <Button type="submit">Submit</Button>
         </FormControl>
       </form>
     </Box>

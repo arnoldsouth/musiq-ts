@@ -18,15 +18,15 @@ const SpotifyApi = {
     return `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=${redirectUri}&scope=playlist-modify-public`;
   },
 
-  search(searchInput: string) {
-    return fetch(
-      `https://api.spotify.com/v1/search?q=${searchInput}&type=track`,
-      {
-        headers: {
-          Authorization: `Bearer ${SpotifyApi.getAccessToken()}`,
-        },
-      }
-    ).then((response) => response.json());
+  search() {
+    // return fetch(
+    //   `https://api.spotify.com/v1/search?q=${searchInput}&type=track`,
+    //   {
+    //     headers: {
+    //       Authorization: `Bearer ${SpotifyApi.getAccessToken()}`,
+    //     },
+    //   }
+    // ).then((response) => response.json());
   },
 };
 

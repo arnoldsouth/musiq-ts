@@ -2,13 +2,23 @@
 
 import { Box, Heading, Text } from '@chakra-ui/react';
 import Tracklist from '../Tracklist/Tracklist';
+import { TrackDto } from '../Track/TrackDto';
 
-const SearchResults = ({ searchResults }: any) => {
+// create SearchResults component to accept an array of tracks as props, and then pass it down to the Tracklist component
+interface SearchResultsProps {
+  searchResults: TrackDto[];
+  onAdd: (track: TrackDto) => void;
+}
+
+const SearchResults: React.FC<SearchResultsProps> = ({
+  searchResults,
+  onAdd,
+}) => {
   return (
     <Box>
-      <Heading fontWeight="bold">Search Results</Heading>
+      <Heading>Search Results</Heading>
 
-      <Tracklist tracks={searchResults} />
+      <Tracklist tracks={searchResults} onAdd={onAdd} />
     </Box>
   );
 };
